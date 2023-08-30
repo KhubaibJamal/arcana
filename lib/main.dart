@@ -1,4 +1,5 @@
 import 'package:agha_steel/route.dart';
+import 'package:agha_steel/screens/home/home_screen.dart';
 import 'package:agha_steel/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Agha Steel',
       theme: ThemeData(),
-      initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       routes: routes,
     );
   }
