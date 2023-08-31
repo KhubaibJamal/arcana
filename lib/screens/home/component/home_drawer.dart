@@ -16,100 +16,97 @@ class HomeDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const UserInfo(),
-            SizedBox(height: height * 0.05),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, HomeScreen.routeName);
-                    },
-                    title: const Text(
-                      "Home",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading: SvgPicture.asset('assets/icons/home.svg'),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Notification",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading: SvgPicture.asset('assets/icons/bell.svg'),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Account History",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading:
-                        SvgPicture.asset('assets/icons/account history.svg'),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Order History",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading: SvgPicture.asset('assets/icons/order history.svg'),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Scheduled Order",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading: SvgPicture.asset('assets/icons/calender.svg'),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Feedback/ Inquiry\nComplaints",
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    leading: SvgPicture.asset('assets/icons/mail.svg'),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: SizedBox(
-                      width: width / 3,
-                      height: 60,
-                      child: DefaultButton(
-                        text: "Log Out",
-                        textColor: Colors.white,
-                        press: () {},
-                      ),
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const UserInfo(),
+          SizedBox(height: height * 0.05),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, HomeScreen.routeName);
+                  },
+                  title: const Text(
+                    "Home",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
                     ),
                   ),
-                  const Spacer(),
-                ],
-              ),
+                  leading: SvgPicture.asset('assets/icons/home.svg'),
+                ),
+                ListTile(
+                  title: const Text(
+                    "Notification",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  leading: SvgPicture.asset('assets/icons/bell.svg'),
+                ),
+                ListTile(
+                  title: const Text(
+                    "Account History",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  leading: SvgPicture.asset('assets/icons/account history.svg'),
+                ),
+                ListTile(
+                  title: const Text(
+                    "Order History",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  leading: SvgPicture.asset('assets/icons/order history.svg'),
+                ),
+                ListTile(
+                  title: const Text(
+                    "Scheduled Order",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  leading: SvgPicture.asset('assets/icons/calender.svg'),
+                ),
+                ListTile(
+                  title: const Text(
+                    "Feedback/ Inquiry\nComplaints",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  leading: SvgPicture.asset('assets/icons/mail.svg'),
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: SizedBox(
+                    width: width / 3,
+                    height: 60,
+                    child: DefaultButton(
+                      text: "Log Out",
+                      textColor: Colors.white,
+                      press: () {},
+                    ),
+                  ),
+                ),
+                const Spacer(),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
