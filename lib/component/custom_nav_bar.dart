@@ -1,4 +1,5 @@
 import 'package:agha_steel/screens/about/about_screen.dart';
+import 'package:agha_steel/screens/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -55,7 +56,6 @@ class CustomBottomNavBar extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, AboutScreen.routeName);
-                print("pressed");
               },
               icon: SvgPicture.asset(
                 'assets/icons/about.svg',
@@ -68,8 +68,18 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset('assets/icons/setting.svg'),
+              onPressed: () {
+                Navigator.pushNamed(context, SettingScreen.routeName);
+              },
+              icon: SvgPicture.asset(
+                'assets/icons/setting.svg',
+                colorFilter: ColorFilter.mode(
+                  MenuState.setting == selectedMenu
+                      ? kPrimaryColor
+                      : inactiveIconColor,
+                  BlendMode.srcIn,
+                ),
+              ),
             ),
             IconButton(
               onPressed: () {
