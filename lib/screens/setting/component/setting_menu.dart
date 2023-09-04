@@ -16,14 +16,61 @@ class SettingMenu extends StatelessWidget {
           subTitle: "SMS and Push Notification",
           bgColor: const Color(0xFFF37020),
           icon: "assets/icons/notification.svg",
-          press: () {},
+          press: () {
+            notificationBottomSheet(context);
+          },
         ),
         SettingMenuItem(
           title: "Guidelines",
           subTitle: "Terms, Conditions, & Privacy",
           bgColor: const Color(0xFF8C32FF),
           icon: "assets/icons/guidelines.svg",
-          press: () {},
+          press: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return SizedBox(
+                  height: SizeConfig.screenHeight! / 2,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Spacer(),
+                          Text(
+                            "Settings",
+                            style: TextStyle(
+                              color: kTextColor,
+                              fontWeight: FontWeight.w700,
+                              fontSize: getProportionateScreenWidth(20),
+                            ),
+                          ),
+                          const Spacer(flex: 2),
+                          Expanded(
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: const Icon(
+                                Icons.close,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(color: kTextColor),
+                      SettingMenuItem(
+                        title: "Terms",
+                        bgColor: const Color(0xFFFF9900),
+                        icon: 'assets/icons/notification.svg',
+                        press: () {},
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
         ),
         SettingMenuItem(
           title: "Rate App",
@@ -42,17 +89,87 @@ class SettingMenu extends StatelessWidget {
       ],
     );
   }
+
+  Future<dynamic> notificationBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: SizeConfig.screenHeight! / 2,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  Text(
+                    "Notification Settings",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: getProportionateScreenWidth(20),
+                    ),
+                  ),
+                  const Spacer(flex: 2),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(color: kTextColor),
+              notificationBottomSheetContainer(),
+              notificationBottomSheetContainer(),
+              notificationBottomSheetContainer(),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Container notificationBottomSheetContainer() {
+    return Container(
+      padding: EdgeInsets.all(getProportionateScreenWidth(16.0)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            'Switch Example',
+            style: TextStyle(
+              fontSize: getProportionateScreenWidth(18),
+              fontWeight: FontWeight.w600,
+              color: kTextColor,
+            ),
+          ),
+          const SizedBox(width: 10.0),
+          Switch(
+            activeColor: const Color(0xFF03DA4C),
+            value: true,
+            onChanged: (bool newValue) {},
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class SettingMenuItem extends StatelessWidget {
-  final String title, subTitle, icon;
+  final String title, icon;
+  final String? subTitle;
   final Color bgColor;
   final VoidCallback press;
 
   const SettingMenuItem({
     super.key,
     required this.title,
-    required this.subTitle,
+    this.subTitle,
     required this.bgColor,
     required this.icon,
     required this.press,
@@ -85,7 +202,7 @@ class SettingMenuItem extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        subTitle,
+        subTitle!,
         style: TextStyle(
           color: kSecondaryTextColor,
           fontWeight: FontWeight.w500,
