@@ -3,7 +3,7 @@ import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 import 'about_container.dart';
-import 'custom_app_bar.dart';
+import '../../../component/icon_container.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -12,13 +12,12 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(15),
-        ),
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(15)),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CustomAppBar(),
+              const IconContainer(),
               Image.asset('assets/images/logo.png'),
               const AboutContainer(),
               SizedBox(height: getProportionateScreenWidth(20)),

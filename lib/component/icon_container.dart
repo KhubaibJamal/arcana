@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
+class IconContainer extends StatelessWidget {
+  const IconContainer({
     super.key,
   });
 
