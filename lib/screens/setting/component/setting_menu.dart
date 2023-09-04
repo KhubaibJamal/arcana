@@ -1,3 +1,4 @@
+import 'package:agha_steel/screens/setting/component/setting_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -26,50 +27,7 @@ class SettingMenu extends StatelessWidget {
           bgColor: const Color(0xFF8C32FF),
           icon: "assets/icons/guidelines.svg",
           press: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return SizedBox(
-                  height: SizeConfig.screenHeight! / 2,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Spacer(),
-                          Text(
-                            "Settings",
-                            style: TextStyle(
-                              color: kTextColor,
-                              fontWeight: FontWeight.w700,
-                              fontSize: getProportionateScreenWidth(20),
-                            ),
-                          ),
-                          const Spacer(flex: 2),
-                          Expanded(
-                            child: IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: const Icon(
-                                Icons.close,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Divider(color: kTextColor),
-                      SettingMenuItem(
-                        title: "Terms",
-                        bgColor: const Color(0xFFFF9900),
-                        icon: 'assets/icons/notification.svg',
-                        press: () {},
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
+            guidelineBottomSheet(context);
           },
         ),
         SettingMenuItem(
@@ -87,6 +45,99 @@ class SettingMenu extends StatelessWidget {
           press: () {},
         ),
       ],
+    );
+  }
+
+  Future<dynamic> guidelineBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: SizeConfig.screenHeight! / 2,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  Text(
+                    "Settings",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: getProportionateScreenWidth(20),
+                    ),
+                  ),
+                  const Spacer(flex: 2),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(color: kTextColor),
+              guidelineBottomListTile(
+                bgColor: const Color(0xFFFF9900),
+                title: "Terms",
+                icon: "assets/icons/notification.svg",
+              ),
+              guidelineBottomListTile(
+                bgColor: const Color(0xFF8C32FF),
+                title: "Conditions",
+                icon: "assets/icons/guidelines.svg",
+              ),
+              guidelineBottomListTile(
+                bgColor: const Color(0xFFD7334C),
+                title: "Privacy",
+                icon: "assets/icons/guidelines.svg",
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  ListTile guidelineBottomListTile({
+    required Color bgColor,
+    required String title,
+    required String icon,
+  }) {
+    return ListTile(
+      contentPadding: EdgeInsets.all(getProportionateScreenWidth(12.0)),
+      leading: Container(
+        height: 70,
+        width: 70,
+        decoration: BoxDecoration(
+          color: bgColor,
+          shape: BoxShape.circle,
+        ),
+        child: SvgPicture.asset(
+          icon,
+          height: 30,
+          width: 30,
+          fit: BoxFit.scaleDown,
+        ),
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: kTextColor,
+          fontWeight: FontWeight.w600,
+          fontSize: getProportionateScreenWidth(17),
+        ),
+      ),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        size: 20,
+        color: kTextColor,
+      ),
     );
   }
 
@@ -155,64 +206,6 @@ class SettingMenu extends StatelessWidget {
             onChanged: (bool newValue) {},
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SettingMenuItem extends StatelessWidget {
-  final String title, icon;
-  final String? subTitle;
-  final Color bgColor;
-  final VoidCallback press;
-
-  const SettingMenuItem({
-    super.key,
-    required this.title,
-    this.subTitle,
-    required this.bgColor,
-    required this.icon,
-    required this.press,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: press,
-      leading: Container(
-        height: 70,
-        width: 70,
-        decoration: BoxDecoration(
-          color: bgColor,
-          shape: BoxShape.circle,
-        ),
-        child: SvgPicture.asset(
-          icon,
-          height: 30,
-          width: 30,
-          fit: BoxFit.scaleDown,
-        ),
-      ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: kTextColor,
-          fontWeight: FontWeight.w600,
-          fontSize: getProportionateScreenWidth(17),
-        ),
-      ),
-      subtitle: Text(
-        subTitle!,
-        style: TextStyle(
-          color: kSecondaryTextColor,
-          fontWeight: FontWeight.w500,
-          fontSize: getProportionateScreenWidth(13),
-        ),
-      ),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-        size: 20,
-        color: kTextColor,
       ),
     );
   }

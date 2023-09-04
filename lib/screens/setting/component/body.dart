@@ -1,9 +1,6 @@
 import 'package:agha_steel/screens/setting/component/setting_menu.dart';
 import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../const.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
