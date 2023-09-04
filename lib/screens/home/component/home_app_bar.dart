@@ -1,3 +1,4 @@
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -22,11 +23,11 @@ class AppBarWidgetList extends StatelessWidget {
               color: kPrimaryColor,
             ),
           ),
-          const Text(
+          Text(
             "Ejaz Ahmed",
             style: TextStyle(
               color: Colors.black,
-              fontSize: 16,
+              fontSize: getProportionateScreenWidth(16),
             ),
           ),
           IconButton(
@@ -97,12 +98,12 @@ class DrawerIcon extends StatelessWidget {
                 color: kPrimaryColor,
               ),
             ),
-            child: const Center(
+            child: Center(
               child: Text(
                 "2",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
+                  fontSize: getProportionateScreenWidth(16),
                 ),
               ),
             ),

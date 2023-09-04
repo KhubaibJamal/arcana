@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:agha_steel/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../size_config.dart';
+
 class SplashScreen extends StatefulWidget {
   static String routeName = "/splash";
 
@@ -35,6 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(

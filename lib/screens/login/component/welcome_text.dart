@@ -1,3 +1,4 @@
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeText extends StatelessWidget {
@@ -7,14 +8,15 @@ class WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned(
-      top: 120,
+    return Positioned(
+      top: getProportionateScreenWidth(100),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(18)),
         child: Text(
           "Welcome to",
           style: TextStyle(
-            fontSize: 35,
+            fontSize: getProportionateScreenWidth(30),
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),

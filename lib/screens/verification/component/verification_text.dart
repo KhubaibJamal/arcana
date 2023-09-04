@@ -1,3 +1,4 @@
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../../../const.dart';
@@ -5,42 +6,39 @@ import 'forgot_text.dart';
 import 'otp_form.dart';
 
 class VerificationText extends StatelessWidget {
-  final double height;
   const VerificationText({
     super.key,
-    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(12.0)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Verification Code",
             style: TextStyle(
               color: kTextColor,
-              fontSize: 24,
+              fontSize: getProportionateScreenWidth(24),
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: height * 0.03),
-          const Text(
+          SizedBox(height: SizeConfig.screenHeight! * 0.03),
+          Text(
             "Please type the verification code sent to your mobile number",
             style: TextStyle(
               color: kSecondaryTextColor,
-              fontSize: 18,
+              fontSize: getProportionateScreenWidth(18),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: OtpForm(),
+          Padding(
+            padding: EdgeInsets.all(getProportionateScreenWidth(12.0)),
+            child: const OtpForm(),
           ),
-          SizedBox(
-            height: height * 0.08,
-          ),
+          SizedBox(height: SizeConfig.screenHeight! * 0.08),
           const ForgotText()
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../const.dart';
@@ -32,7 +33,7 @@ class DefaultButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: getProportionateScreenWidth(18),
             color: textColor,
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:agha_steel/screens/phone/component/login_text.dart';
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../../../component/custom_headr.dart';
@@ -8,14 +9,12 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: ListView(
         children: [
           const CustomHeader(),
-          SizedBox(height: height * 0.08),
-          LoginText(height: height, width: width),
+          SizedBox(height: SizeConfig.screenHeight! * 0.08),
+          const LoginText(),
         ],
       ),
     );

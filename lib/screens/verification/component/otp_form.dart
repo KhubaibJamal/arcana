@@ -1,5 +1,6 @@
 import 'package:agha_steel/const.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 
 class OtpForm extends StatefulWidget {
@@ -44,7 +45,7 @@ class _OtpFormState extends State<OtpForm> {
       key: _formKey,
       child: Column(
         children: [
-          const SizedBox(height: 20),
+          SizedBox(height: getProportionateScreenWidth(20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -53,7 +54,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   autofocus: true,
                   obscureText: true,
-                  style: const TextStyle(fontSize: 24),
+                  style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -83,7 +84,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   obscureText: true,
                   focusNode: pin2FocusNode,
-                  style: const TextStyle(fontSize: 24),
+                  style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -113,7 +114,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   obscureText: true,
                   focusNode: pin3FocusNode,
-                  style: const TextStyle(fontSize: 24),
+                  style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -143,7 +144,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   obscureText: true,
                   focusNode: pin4FocusNode,
-                  style: const TextStyle(fontSize: 24),
+                  style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(

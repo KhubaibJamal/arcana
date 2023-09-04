@@ -1,3 +1,4 @@
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -12,24 +13,32 @@ class HomeChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 300, // Set the width of the chart
-        height: 300, // Set the height of the chart
-        padding: const EdgeInsets.all(16.0),
+        width: SizeConfig.screenWidth!,
+        height: 400,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(
+              offset: Offset(0, 3),
+              blurRadius: 5,
+              spreadRadius: 3,
+              color: Colors.grey,
+            )
+          ],
+        ),
+        padding: EdgeInsets.all(getProportionateScreenWidth(16)),
         child: SfCartesianChart(
-          // Initialize the chart with the required settings
-          primaryXAxis: CategoryAxis(),
+          primaryXAxis: CategoryAxis(
+            majorGridLines: const MajorGridLines(width: 0),
+          ),
           primaryYAxis: NumericAxis(
-              // axisLine: AxisLine(
-              //   color: Colors.amber,
-              //   width: 0,
-              // ),
-              // title: AxisTitle(text: 'Primary Axis'),
-              ),
+            majorGridLines: const MajorGridLines(width: 0),
+          ),
           axes: <ChartAxis>[
             NumericAxis(
-                // name: 'SecondaryAxis',
-                // title: AxisTitle(text: 'Secondary Axis'),
-                ),
+              majorGridLines: const MajorGridLines(width: 0),
+            ),
           ],
           series: <ChartSeries>[
             // Define your data series for the primary axis

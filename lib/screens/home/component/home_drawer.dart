@@ -1,5 +1,6 @@
 import 'package:agha_steel/component/default_button.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
+import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../const.dart';
@@ -7,12 +8,7 @@ import '../../../const.dart';
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({
     super.key,
-    required this.height,
-    required this.width,
   });
-
-  final double height;
-  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,7 @@ class HomeDrawer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const UserInfo(),
-          SizedBox(height: height * 0.05),
+          SizedBox(height: SizeConfig.screenHeight! * 0.05),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,70 +26,71 @@ class HomeDrawer extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, HomeScreen.routeName);
                   },
-                  title: const Text(
+                  title: Text(
                     "Home",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/home.svg'),
                 ),
                 ListTile(
-                  title: const Text(
+                  title: Text(
                     "Notification",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/bell.svg'),
                 ),
                 ListTile(
-                  title: const Text(
+                  title: Text(
                     "Account History",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/account history.svg'),
                 ),
                 ListTile(
-                  title: const Text(
+                  title: Text(
                     "Order History",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/order history.svg'),
                 ),
                 ListTile(
-                  title: const Text(
+                  title: Text(
                     "Scheduled Order",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/calender.svg'),
                 ),
                 ListTile(
-                  title: const Text(
+                  title: Text(
                     "Feedback/ Inquiry\nComplaints",
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 16,
+                      fontSize: getProportionateScreenWidth(16),
                     ),
                   ),
                   leading: SvgPicture.asset('assets/icons/mail.svg'),
                 ),
                 const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
+                  padding:
+                      EdgeInsets.only(left: getProportionateScreenWidth(15.0)),
                   child: SizedBox(
-                    width: width / 3,
+                    width: SizeConfig.screenWidth! / 3,
                     height: 60,
                     child: DefaultButton(
                       text: "Log Out",
