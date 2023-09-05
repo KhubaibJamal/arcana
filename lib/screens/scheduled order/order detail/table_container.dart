@@ -14,7 +14,6 @@ class TableContainer extends StatelessWidget {
       padding: EdgeInsets.all(getProportionateScreenWidth(10.0)),
       decoration: BoxDecoration(
         color: const Color(0xFFFFFFFF),
-        // color: Colors.red,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -41,14 +40,12 @@ class TableContainer extends StatelessWidget {
                 4: FlexColumnWidth(3),
               },
               children: [
-                TableRow(
-                    // decoration: BoxDecoration(color: Colors.red),
-                    children: [
-                      Text("Name/size", style: tableHeadingStyle),
-                      Text("Qty", style: tableHeadingStyle),
-                      Text("Deliver Qty", style: tableHeadingStyle),
-                      Text("Rate", style: tableHeadingStyle),
-                    ]),
+                TableRow(children: [
+                  Text("Name/size", style: tableHeadingStyle),
+                  Text("Qty", style: tableHeadingStyle),
+                  Text("Deliver Qty", style: tableHeadingStyle),
+                  Text("Rate", style: tableHeadingStyle),
+                ]),
                 TableRow(children: [
                   Text("Steel Bar/2", style: tableColumnStyle),
                   Text("10x", style: tableColumnStyle),
@@ -76,7 +73,6 @@ class TableContainer extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(height: getProportionateScreenWidth(20)),
         ],
       ),
     );
