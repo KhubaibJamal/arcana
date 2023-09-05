@@ -1,5 +1,6 @@
 import 'package:agha_steel/component/default_button.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
+import 'package:agha_steel/screens/scheduled%20order/scheduled_order_screen.dart';
 import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -66,6 +67,10 @@ class HomeDrawer extends StatelessWidget {
                   leading: SvgPicture.asset('assets/icons/order history.svg'),
                 ),
                 ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, ScheduledOrderScreen.routeName);
+                  },
                   title: Text(
                     "Scheduled Order",
                     style: TextStyle(

@@ -23,9 +23,11 @@ class DefaultButton extends StatelessWidget {
       height: 60,
       child: TextButton(
         style: TextButton.styleFrom(
+          elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
+          shadowColor: kPrimaryColor,
           foregroundColor: Colors.white,
           backgroundColor: backgroundColor,
         ),

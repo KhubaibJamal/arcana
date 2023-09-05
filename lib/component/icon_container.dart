@@ -25,7 +25,9 @@ class IconContainer extends StatelessWidget {
           ),
           child: Center(
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(
                 Icons.arrow_back_ios,
               ),
