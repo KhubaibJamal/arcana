@@ -2,6 +2,7 @@ import 'package:agha_steel/component/default_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../component/icon_container.dart';
+import '../../../../component/screen_title.dart';
 import '../../../../const.dart';
 import '../../../../size_config.dart';
 import '../order_detail_text.dart';
@@ -21,13 +22,9 @@ class OrderDetail extends StatelessWidget {
           padding: EdgeInsets.only(left: 12.0),
           child: IconContainer(),
         ),
-        title: Text(
-          "Order Details",
-          style: TextStyle(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.w800,
-            fontSize: getProportionateScreenWidth(18),
-          ),
+        title: const ScreenTitle(
+          title: "Order Details",
+          textColor: kPrimaryColor,
         ),
       ),
       body: Padding(

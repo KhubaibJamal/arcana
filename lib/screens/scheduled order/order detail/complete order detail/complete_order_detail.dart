@@ -1,4 +1,5 @@
 import 'package:agha_steel/component/icon_container.dart';
+import 'package:agha_steel/component/screen_title.dart';
 import 'package:agha_steel/screens/scheduled%20order/order%20detail/table_container.dart';
 import 'package:agha_steel/screens/scheduled%20order/order%20detail/total_amount_text.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +21,9 @@ class CompleteOrderDetail extends StatelessWidget {
           padding: EdgeInsets.only(left: 12.0),
           child: IconContainer(),
         ),
-        title: Text(
-          "Order Details",
-          style: TextStyle(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.w800,
-            fontSize: getProportionateScreenWidth(18),
-          ),
+        title: const ScreenTitle(
+          title: "Order Details",
+          textColor: kPrimaryColor,
         ),
       ),
       body: Padding(

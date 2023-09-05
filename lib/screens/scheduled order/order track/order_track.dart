@@ -1,3 +1,4 @@
+import 'package:agha_steel/component/screen_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,13 +19,9 @@ class OrderTrack extends StatelessWidget {
           padding: EdgeInsets.only(left: 12.0),
           child: IconContainer(),
         ),
-        title: Text(
-          "Order Tracking",
-          style: TextStyle(
-            color: kTextColor,
-            fontWeight: FontWeight.w800,
-            fontSize: getProportionateScreenWidth(18),
-          ),
+        title: const ScreenTitle(
+          title: "Order Tracking",
+          textColor: kTextColor,
         ),
       ),
       body: SizedBox(
