@@ -1,5 +1,6 @@
 import 'package:agha_steel/component/default_button.dart';
 import 'package:agha_steel/screens/account%20history/account_history_screen.dart';
+import 'package:agha_steel/screens/complaints/complaints_screen.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
 import 'package:agha_steel/screens/order%20history/order_history_screen.dart';
 import 'package:agha_steel/screens/scheduled%20order/scheduled_order_screen.dart';
@@ -90,8 +91,11 @@ class HomeDrawer extends StatelessWidget {
                   leading: SvgPicture.asset('assets/icons/calender.svg'),
                 ),
                 ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, ComplaintsScreen.routeName);
+                  },
                   title: Text(
-                    "Feedback/ Inquiry\nComplaints",
+                    "Feedback/Inquiry/Complaints",
                     style: TextStyle(
                       color: kTextColor,
                       fontSize: getProportionateScreenWidth(16),

@@ -41,5 +41,6 @@ final orangeTextStyle = TextStyle(
 
 final radioButtonTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(15),
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w700,
+  fontFamily: "SF Pro Rounded",
 );
