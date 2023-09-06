@@ -1,3 +1,4 @@
+import 'package:agha_steel/screens/Ledger%20Reconciliation/ledger_reconciliation.dart';
 import 'package:agha_steel/screens/about/about_screen.dart';
 import 'package:agha_steel/screens/account%20history/account_history_screen.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
@@ -29,4 +30,6 @@ final Map<String, WidgetBuilder> routes = {
   OrderTrack.routeName: (context) => OrderTrack(),
   OrderHistoryScreen.routeName: (context) => OrderHistoryScreen(),
   AccountHistoryScreen.routeName: (context) => AccountHistoryScreen(),
+  LedgerReconciliationScreen.routeName: (context) =>
+      LedgerReconciliationScreen(),
 };

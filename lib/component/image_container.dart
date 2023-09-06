@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../size_config.dart';
+import '../size_config.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
@@ -15,6 +15,10 @@ class ImageContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFFFFFFF),
         // color: Colors.red,
+        border: Border.all(
+          width: 1.5,
+          color: const Color(0xFFBDBDBD),
+        ),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
