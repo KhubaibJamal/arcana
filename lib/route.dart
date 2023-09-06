@@ -1,4 +1,5 @@
 import 'package:agha_steel/screens/about/about_screen.dart';
+import 'package:agha_steel/screens/account%20history/account_history_screen.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
 import 'package:agha_steel/screens/login/login_screen.dart';
 import 'package:agha_steel/screens/order%20history/order_history_screen.dart';
@@ -27,4 +28,5 @@ final Map<String, WidgetBuilder> routes = {
   OrderDetail.routeName: (context) => OrderDetail(),
   OrderTrack.routeName: (context) => OrderTrack(),
   OrderHistoryScreen.routeName: (context) => OrderHistoryScreen(),
+  AccountHistoryScreen.routeName: (context) => AccountHistoryScreen(),
 };

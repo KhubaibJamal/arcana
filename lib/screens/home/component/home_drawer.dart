@@ -1,4 +1,5 @@
 import 'package:agha_steel/component/default_button.dart';
+import 'package:agha_steel/screens/account%20history/account_history_screen.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
 import 'package:agha_steel/screens/order%20history/order_history_screen.dart';
 import 'package:agha_steel/screens/scheduled%20order/scheduled_order_screen.dart';
@@ -48,6 +49,10 @@ class HomeDrawer extends StatelessWidget {
                   leading: SvgPicture.asset('assets/icons/bell.svg'),
                 ),
                 ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, AccountHistoryScreen.routeName);
+                  },
                   title: Text(
                     "Account History",
                     style: TextStyle(

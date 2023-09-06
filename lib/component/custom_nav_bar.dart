@@ -26,13 +26,13 @@ class CustomBottomNavBar extends StatelessWidget {
         //   topLeft: Radius.circular(40),
         //   topRight: Radius.circular(40),
         // ),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, -4),
-            blurRadius: 20,
-            color: Color(0xFFDADADA),
-          )
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     offset: Offset(0, -4),
+        //     blurRadius: 20,
+        //     color: Color(0xFFDADADA),
+        //   )
+        // ],
       ),
       child: SafeArea(
         top: false,
