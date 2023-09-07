@@ -16,6 +16,7 @@ class _OtpFormState extends State<OtpForm> {
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
+  FocusNode? pin5FocusNode;
 
   @override
   void initState() {
@@ -23,6 +24,7 @@ class _OtpFormState extends State<OtpForm> {
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();
+    pin5FocusNode = FocusNode();
   }
 
   @override
@@ -31,6 +33,7 @@ class _OtpFormState extends State<OtpForm> {
     pin2FocusNode!.dispose();
     pin3FocusNode!.dispose();
     pin4FocusNode!.dispose();
+    pin5FocusNode!.dispose();
   }
 
   void nextFocusNode(String value, FocusNode focusNode) {
@@ -57,23 +60,7 @@ class _OtpFormState extends State<OtpForm> {
                   style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                  ),
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     nextFocusNode(value, pin2FocusNode!);
                   },
@@ -87,23 +74,7 @@ class _OtpFormState extends State<OtpForm> {
                   style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                  ),
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     nextFocusNode(value, pin3FocusNode!);
                   },
@@ -117,23 +88,7 @@ class _OtpFormState extends State<OtpForm> {
                   style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                  ),
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     nextFocusNode(value, pin4FocusNode!);
                   },
@@ -147,26 +102,24 @@ class _OtpFormState extends State<OtpForm> {
                   style: TextStyle(fontSize: getProportionateScreenWidth(24)),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: kTextColor,
-                      ),
-                    ),
-                  ),
+                  decoration: otpInputDecoration,
+                  onChanged: (value) {
+                    nextFocusNode(value, pin5FocusNode!);
+                  },
+                ),
+              ),
+              SizedBox(
+                width: 60,
+                child: TextFormField(
+                  obscureText: true,
+                  focusNode: pin5FocusNode,
+                  style: TextStyle(fontSize: getProportionateScreenWidth(24)),
+                  keyboardType: TextInputType.number,
+                  textAlign: TextAlign.center,
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     if (value.length == 1) {
-                      pin4FocusNode!.unfocus();
+                      pin5FocusNode!.unfocus();
                       // navigate to home Screen
                       Navigator.pushReplacementNamed(
                           context, HomeScreen.routeName);

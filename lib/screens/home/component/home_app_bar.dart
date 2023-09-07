@@ -65,7 +65,7 @@ class DrawerIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.expand,
+      // fit: StackFit.expand,
       children: [
         InkWell(
           onTap: press,
@@ -81,8 +81,25 @@ class DrawerIcon extends StatelessWidget {
                 ),
               ],
             ),
-            child: SvgPicture.asset(
-              'assets/icons/menu.svg',
+            child: Container(
+              margin: EdgeInsets.all(getProportionateScreenWidth(8)),
+              padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(5, 10),
+                    blurRadius: 20,
+                    color: const Color(0xFFD3D1D84D).withOpacity(0.3),
+                  )
+                ],
+              ),
+              child: SvgPicture.asset(
+                'assets/icons/drawer icon.svg',
+              ),
             ),
           ),
         ),

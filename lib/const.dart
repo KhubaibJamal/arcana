@@ -9,6 +9,25 @@ const kGreenColor = Color(0xFF34A853);
 const kRedColor = Color(0xFFEA4335);
 const kGreyColor = Color(0xFFD8D8D8);
 
+final otpInputDecoration = InputDecoration(
+  contentPadding: const EdgeInsets.symmetric(
+    vertical: 15,
+  ),
+  border: outlineInputBorder(),
+  enabledBorder: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+);
+
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(15),
+    borderSide: const BorderSide(
+      color: kGreyColor,
+      width: 1.5,
+    ),
+  );
+}
+
 final scheduledOrderTitleText = TextStyle(
   color: kTextColor,
   fontSize: getProportionateScreenWidth(18),

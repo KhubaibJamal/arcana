@@ -1,3 +1,4 @@
+import 'package:agha_steel/component/icon_container.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
@@ -11,15 +12,13 @@ class CustomHeader extends StatelessWidget {
       children: [
         Image.asset(
           "assets/images/appbar logo.png",
-          fit: BoxFit.cover,
+          // fit: BoxFit.cover,
         ),
-        Positioned(
+        const Positioned(
           bottom: 15,
-          child: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back),
+          child: Padding(
+            padding: EdgeInsets.only(left: 12.0),
+            child: IconContainer(),
           ),
         ),
       ],

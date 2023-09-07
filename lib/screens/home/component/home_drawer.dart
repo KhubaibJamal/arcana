@@ -109,7 +109,6 @@ class HomeDrawer extends StatelessWidget {
                       EdgeInsets.only(left: getProportionateScreenWidth(15.0)),
                   child: SizedBox(
                     width: SizeConfig.screenWidth! / 3,
-                    height: 60,
                     child: DefaultButton(
                       text: "Log Out",
                       textColor: Colors.white,
@@ -117,7 +116,8 @@ class HomeDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
+                // const Spacer(),
+                SizedBox(height: getProportionateScreenWidth(20))
               ],
             ),
           ),
