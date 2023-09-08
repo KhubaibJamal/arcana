@@ -1,133 +1,81 @@
-import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Circular Percent Indicators"),
-      ),
-      body: Center(
-        child: ListView(children: <Widget>[
-          CircularPercentIndicator(
-            radius: 100.0,
-            lineWidth: 10.0,
-            percent: 0.8,
-            header: const Text("Icon header"),
-            center: const Icon(
-              Icons.person_pin,
-              size: 50.0,
-              color: Colors.blue,
-            ),
-            backgroundColor: Colors.grey,
-            progressColor: Colors.blue,
-          ),
-          CircularPercentIndicator(
-            radius: 70.0,
-            animation: true,
-            animationDuration: 1200,
-            lineWidth: 7.0,
-            percent: 0.75,
-            center: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "40 hours",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                ),
-                Text("data"),
-              ],
-            ),
-            linearGradient: LinearGradient(
-              colors: [
-                Colors.yellow,
-                Colors.red,
-                Colors.purple,
-              ],
-            ),
-            circularStrokeCap: CircularStrokeCap.butt,
-            backgroundColor: Colors.grey,
-            // progressColor: Colors.red,
-          ),
-          CircularPercentIndicator(
-            radius: 120.0,
-            lineWidth: 13.0,
-            animation: true,
-            percent: 0.7,
-            center: const Text(
-              "70.0%",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-            ),
-            footer: const Text(
-              "Sales this week",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-            ),
-            circularStrokeCap: CircularStrokeCap.round,
-            progressColor: Colors.purple,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: CircularPercentIndicator(
-              radius: 60.0,
-              lineWidth: 5.0,
-              percent: 1.0,
-              center: const Text("100%"),
-              progressColor: Colors.green,
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(15.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  CircularPercentIndicator(
-                    radius: 45.0,
-                    lineWidth: 4.0,
-                    percent: 0.10,
-                    center: const Text("10%"),
-                    progressColor: Colors.red,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  ),
-                  CircularPercentIndicator(
-                    radius: 45.0,
-                    lineWidth: 4.0,
-                    percent: 0.30,
-                    center: const Text("30%"),
-                    progressColor: Colors.orange,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  ),
-                  CircularPercentIndicator(
-                    radius: 45.0,
-                    lineWidth: 4.0,
-                    percent: 0.60,
-                    center: const Text("60%"),
-                    progressColor: Colors.yellow,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  ),
-                  CircularPercentIndicator(
-                    radius: 45.0,
-                    lineWidth: 4.0,
-                    percent: 0.90,
-                    center: const Text("90%"),
-                    progressColor: Colors.green,
-                  )
-                ],
-              ),
-            ),
-          )
-        ]),
-      ),
-    );
-  }
-}
+// class Test extends StatefulWidget {
+//   const Test({Key? key}) : super(key: key);
+
+//   @override
+//   State<Test> createState() => _TestState();
+// }
+
+// class _TestState extends State<Test> {
+//   final PageController _controller = PageController(initialPage: 0);
+//   int currentPage = 0;
+
+//   void _navigateToPage(int page) {
+//     _controller.animateToPage(
+//       page,
+//       duration: const Duration(milliseconds: 500),
+//       curve: Curves.easeInOut,
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       body: Column(
+//         children: [
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: [
+//               GestureDetector(
+//                 onTap: () {
+//                   setState(() {
+//                     currentPage = 1;
+//                   });
+//                   _navigateToPage(currentPage);
+//                 },
+//                 child: Container(
+//                   width: 60,
+//                   height: 60,
+//                   color: Colors.amber,
+//                   child: const Center(child: Text("Go to Page 1")),
+//                 ),
+//               ),
+//               GestureDetector(
+//                 onTap: () {
+//                   setState(() {
+//                     currentPage = 2;
+//                   });
+//                   _navigateToPage(currentPage);
+//                 },
+//                 child: Container(
+//                   width: 60,
+//                   height: 60,
+//                   color: Colors.amber,
+//                   child: const Center(child: Text("Go to Page 2")),
+//                 ),
+//               ),
+//             ],
+//           ),
+//           Expanded(
+//             child: PageView.builder(
+//               controller: _controller,
+//               itemCount: 3,
+//               onPageChanged: (int page) {
+//                 setState(() {
+//                   currentPage = page;
+//                 });
+//               },
+//               itemBuilder: ((context, index) {
+//                 return Center(
+//                   child: Text("Page: $index"),
+//                 );
+//               }),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

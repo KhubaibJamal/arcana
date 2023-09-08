@@ -6,8 +6,51 @@ import '../../../component/icon_container.dart';
 import '../../../const.dart';
 import '../../../size_config.dart';
 
-class OrderTrack extends StatelessWidget {
+List<Map<String, String>> orderTrackList = [
+  // {
+  //   "title": "Line up for delivery",
+  //   "subTitle": "18-04-2022",
+  //   "icon": "assets/icons/dispatch.svg"
+  // },
+  {
+    "title": "Dispatch",
+    "subTitle": "18-04-2022",
+    "icon": "assets/icons/dispatch.svg"
+  },
+  {
+    "title": "On the way",
+    "subTitle": "18-04-2022",
+    "icon": "assets/icons/dispatch.svg"
+  },
+  {
+    "title": "Delivered",
+    "subTitle": "18-04-2022",
+    "icon": "assets/icons/dispatch.svg"
+  },
+  {
+    "title": "Received",
+    "subTitle": "18-04-2022",
+    "icon": "assets/icons/dispatch.svg"
+  },
+];
+
+class OrderTrack extends StatefulWidget {
   static String routeName = "/Order_track";
+
+  @override
+  State<OrderTrack> createState() => _OrderTrackState();
+}
+
+class _OrderTrackState extends State<OrderTrack> {
+  List<Widget> widgetList = [
+    const OrderTrackContainer(
+      title: "Line up for delivery",
+      subTitle: "18-04-2022",
+      icon: "assets/icons/dispatch.svg",
+    )
+  ];
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,43 +88,29 @@ class OrderTrack extends StatelessWidget {
                     Image.asset('assets/images/order track.png'),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: SizeConfig.screenWidth!,
-                            height: SizeConfig.screenHeight! * 0.1,
-                            padding:
-                                EdgeInsets.all(getProportionateScreenWidth(15)),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: const Offset(18, 18),
-                                  blurRadius: 36,
-                                  color: const Color(0xFFD3D1D840)
-                                      .withOpacity(0.09),
+                      child: GestureDetector(
+                        onTap: () {
+                          if (currentIndex < orderTrackList.length) {
+                            setState(() {
+                              widgetList.add(
+                                OrderTrackContainer(
+                                  title: orderTrackList[currentIndex]["title"]!,
+                                  subTitle: orderTrackList[currentIndex]
+                                      ["subTitle"]!,
+                                  icon: orderTrackList[currentIndex]["icon"]!,
                                 ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text('Line up for delivery',
-                                        style: scheduledOrderTitleText),
-                                    const SizedBox(width: 5),
-                                    SvgPicture.asset(
-                                        'assets/icons/dispatch.svg'),
-                                  ],
-                                ),
-                                Text('18-04-2022',
-                                    style: scheduledOrderSubTitleText),
-                              ],
-                            ),
-                          ),
-                        ],
+                              );
+                              currentIndex++;
+                            });
+                          }
+                        },
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: widgetList.length,
+                          itemBuilder: (context, index) {
+                            return widgetList[index];
+                          },
+                        ),
                       ),
                     ),
                   ],
@@ -90,6 +119,51 @@ class OrderTrack extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class OrderTrackContainer extends StatelessWidget {
+  final String title, subTitle, icon;
+  const OrderTrackContainer({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: SizeConfig.screenWidth!,
+      height: SizeConfig.screenHeight! * 0.1,
+      padding: EdgeInsets.all(getProportionateScreenWidth(15)),
+      margin: EdgeInsets.only(bottom: getProportionateScreenWidth(10)),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(18, 18),
+            blurRadius: 36,
+            color: const Color(0xFFD3D1D840).withOpacity(0.09),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(title, style: scheduledOrderTitleText),
+              const SizedBox(width: 5),
+              SvgPicture.asset(icon),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Text(subTitle, style: scheduledOrderSubTitleText),
+        ],
       ),
     );
   }

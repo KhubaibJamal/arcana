@@ -5,6 +5,7 @@ import '../../../const.dart';
 import '../../../size_config.dart';
 import 'feedback_box.dart';
 import 'feedback_container.dart';
+import 'glow_star_animation.dart';
 
 class RatingTwo extends StatefulWidget {
   const RatingTwo({
@@ -82,8 +83,12 @@ class _RatingTwoState extends State<RatingTwo> {
               textColor: const Color(0xFFC6C6C6),
               backgroundColor: kPrimaryColor,
               press: () {
-                print("press");
-                // show dialog
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const GlowStarAlertDialog();
+                  },
+                );
               },
             ),
           ),
