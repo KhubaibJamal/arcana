@@ -32,8 +32,10 @@ class SettingMenuItem extends StatelessWidget {
         ),
         child: SvgPicture.asset(
           icon,
-          height: 30,
-          width: 30,
+          colorFilter: const ColorFilter.mode(
+            Colors.white,
+            BlendMode.srcIn,
+          ),
           fit: BoxFit.scaleDown,
         ),
       ),

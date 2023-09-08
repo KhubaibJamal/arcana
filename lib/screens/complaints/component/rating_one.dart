@@ -1,6 +1,6 @@
 import 'package:agha_steel/screens/complaints/component/feedback_container.dart';
+import 'package:agha_steel/screens/complaints/component/glow_star_animation.dart';
 import 'package:flutter/material.dart';
-
 import '../../../component/default_button.dart';
 import '../../../const.dart';
 import '../../../size_config.dart';
@@ -146,7 +146,18 @@ class _RatingOneState extends State<RatingOne> {
                       isRadioThreeSelected
                   ? kPrimaryColor
                   : const Color(0xFFDFDFDF),
-              press: () {},
+              press: () {
+                if (isRadioOneSelected == true ||
+                    isRadioTwoSelected == true ||
+                    isRadioThreeSelected == true) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const GlowStarAlertDialog();
+                    },
+                  );
+                }
+              },
             ),
           ),
         ],

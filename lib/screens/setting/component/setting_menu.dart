@@ -12,6 +12,7 @@ class SettingMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // notification
         SettingMenuItem(
           title: "Notification",
           subTitle: "SMS and Push Notification",
@@ -21,6 +22,8 @@ class SettingMenu extends StatelessWidget {
             notificationBottomSheet(context);
           },
         ),
+
+        // guidelines
         SettingMenuItem(
           title: "Guidelines",
           subTitle: "Terms, Conditions, & Privacy",
@@ -30,6 +33,8 @@ class SettingMenu extends StatelessWidget {
             guidelineBottomSheet(context);
           },
         ),
+
+        // rate app
         SettingMenuItem(
           title: "Rate App",
           subTitle: "Review on app store",
@@ -37,11 +42,13 @@ class SettingMenu extends StatelessWidget {
           icon: "assets/icons/Rating.svg",
           press: () {},
         ),
+
+        // logout
         SettingMenuItem(
           title: "Log Out",
           subTitle: "Log Out",
           bgColor: const Color(0xFFFF003D),
-          icon: "assets/icons/logout2.svg",
+          icon: "assets/icons/logout.svg",
           press: () {},
         ),
       ],
@@ -135,7 +142,6 @@ class SettingMenu extends StatelessWidget {
       ),
       trailing: const Icon(
         Icons.arrow_forward_ios,
-        size: 20,
         color: kTextColor,
       ),
     );

@@ -26,6 +26,7 @@ class HomeDrawer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // home
                 ListTile(
                   onTap: () {
                     Navigator.pushNamed(context, HomeScreen.routeName);
@@ -39,6 +40,8 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/home.svg'),
                 ),
+
+                // notification
                 ListTile(
                   title: Text(
                     "Notification",
@@ -49,6 +52,8 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/bell.svg'),
                 ),
+
+                // account history
                 ListTile(
                   onTap: () {
                     Navigator.pushNamed(
@@ -63,6 +68,8 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/account history.svg'),
                 ),
+
+                // Order History
                 ListTile(
                   onTap: () {
                     Navigator.pushNamed(context, OrderHistoryScreen.routeName);
@@ -76,6 +83,8 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/order history.svg'),
                 ),
+
+                // Scheduled Order
                 ListTile(
                   onTap: () {
                     Navigator.pushNamed(
@@ -90,6 +99,8 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/calender.svg'),
                 ),
+
+                // feedback/ complaints
                 ListTile(
                   onTap: () {
                     Navigator.pushNamed(context, ComplaintsScreen.routeName);
@@ -103,17 +114,28 @@ class HomeDrawer extends StatelessWidget {
                   ),
                   leading: SvgPicture.asset('assets/icons/mail.svg'),
                 ),
+
                 const Spacer(),
+
                 Padding(
                   padding:
                       EdgeInsets.only(left: getProportionateScreenWidth(15.0)),
-                  child: SizedBox(
-                    width: SizeConfig.screenWidth! / 3,
-                    child: DefaultButton(
-                      text: "Log Out",
-                      textColor: Colors.white,
-                      press: () {},
-                    ),
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        width: SizeConfig.screenWidth! / 3,
+                        child: DefaultButton(
+                          text: "Log Out",
+                          textColor: Colors.white,
+                          press: () {},
+                        ),
+                      ),
+                      Positioned(
+                        top: 22,
+                        left: 15,
+                        child: SvgPicture.asset('assets/icons/logout.svg'),
+                      ),
+                    ],
                   ),
                 ),
                 // const Spacer(),

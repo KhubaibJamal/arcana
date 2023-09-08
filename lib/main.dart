@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Agha Steel',
       theme: theme(),
-      // home: const MyWidget(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );

@@ -22,23 +22,13 @@ class CustomBottomNavBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 14),
       decoration: const BoxDecoration(
         color: Colors.white,
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(40),
-        //   topRight: Radius.circular(40),
-        // ),
-        // boxShadow: [
-        //   BoxShadow(
-        //     offset: Offset(0, -4),
-        //     blurRadius: 20,
-        //     color: Color(0xFFDADADA),
-        //   )
-        // ],
       ),
       child: SafeArea(
         top: false,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            // home icon
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, HomeScreen.routeName);
@@ -53,6 +43,8 @@ class CustomBottomNavBar extends StatelessWidget {
                 ),
               ),
             ),
+
+            // about
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, AboutScreen.routeName);
@@ -67,12 +59,14 @@ class CustomBottomNavBar extends StatelessWidget {
                 ),
               ),
             ),
+
+            // setting
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, SettingScreen.routeName);
               },
               icon: SvgPicture.asset(
-                'assets/icons/setting.svg',
+                'assets/icons/setting2.svg',
                 colorFilter: ColorFilter.mode(
                   MenuState.setting == selectedMenu
                       ? kPrimaryColor
@@ -81,6 +75,8 @@ class CustomBottomNavBar extends StatelessWidget {
                 ),
               ),
             ),
+
+            // profile
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, ProfileScreen.routeName);
