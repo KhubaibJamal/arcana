@@ -15,6 +15,7 @@ class HomeChart extends StatelessWidget {
       child: Container(
         width: SizeConfig.screenWidth!,
         height: 400,
+        margin: const EdgeInsets.only(right: 8, left: 8),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),

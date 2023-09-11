@@ -1,45 +1,19 @@
 import 'package:agha_steel/const.dart';
-import 'package:agha_steel/screens/home/component/animated_circular_container.dart';
-import 'package:agha_steel/screens/home/component/home_chart.dart';
 import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
+import '../second_home_screen.dart';
+import 'first_home_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const HeaderText(),
-          SizedBox(height: getProportionateScreenWidth(20)),
-          const PurchaseText(),
-          SizedBox(height: getProportionateScreenWidth(15)),
-          // chart
-          const Stack(
-            children: [
-              HomeChart(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GraphText(text: "Purchase", color: kPrimaryColor),
-                  SizedBox(width: 15),
-                  GraphText(text: "Target", color: kSecondaryColor),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: getProportionateScreenWidth(15)),
-
-          // dots
-          Container(height: 5, width: 5, color: kPrimaryColor),
-          SizedBox(height: getProportionateScreenWidth(30)),
-
-          // animated container
-          const AnimatedCircularContainer(),
-        ],
-      ),
+    return PageView(
+      children: const [
+        FirstHomeScreen(),
+        SecondHomeScreen(),
+      ],
     );
   }
 }
@@ -96,24 +70,26 @@ class PurchaseText extends StatelessWidget {
 }
 
 class HeaderText extends StatelessWidget {
+  final String balance;
   const HeaderText({
     super.key,
+    required this.balance,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
+        const Text(
           "Current Balance ",
           style: TextStyle(
             color: kSecondaryTextColor,
           ),
         ),
         Text(
-          " 1,000,000",
-          style: TextStyle(
+          balance,
+          style: const TextStyle(
             color: kTextColor,
             fontSize: 16,
             fontWeight: FontWeight.bold,
