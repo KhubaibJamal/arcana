@@ -16,6 +16,7 @@ class Body extends StatelessWidget {
           SizedBox(height: getProportionateScreenWidth(20)),
           const PurchaseText(),
           SizedBox(height: getProportionateScreenWidth(15)),
+          // chart
           const Stack(
             children: [
               HomeChart(),
@@ -30,12 +31,12 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(height: getProportionateScreenWidth(15)),
-          Container(
-            height: 5,
-            width: 5,
-            color: Colors.red,
-          ),
+
+          // dots
+          Container(height: 5, width: 5, color: kPrimaryColor),
           SizedBox(height: getProportionateScreenWidth(30)),
+
+          // animated container
           const AnimatedCircularContainer(),
         ],
       ),
