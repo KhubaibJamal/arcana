@@ -35,8 +35,38 @@ class LoginText extends StatelessWidget {
             ),
           ),
           SizedBox(height: getProportionateScreenWidth(30)),
-          TextField(
-            decoration: phoneInputDecoration,
+          Container(
+            width: SizeConfig.screenWidth! * 0.9,
+            height: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: kPrimaryColor,
+                width: 1.5,
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 9.0),
+                  child: Image.asset('assets/images/pak flag.png'),
+                ),
+                const Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.zero,
+                      hintText: "(+92) 300-1234567",
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(height: getProportionateScreenWidth(30)),
           Center(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../size_config.dart';
+
 class IconContainer extends StatelessWidget {
   const IconContainer({
     super.key,
@@ -10,8 +12,9 @@ class IconContainer extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 40,
+          height: 45,
           width: 40,
+          padding: EdgeInsets.all(getProportionateScreenWidth(5)),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),

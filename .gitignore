@@ -12,7 +12,7 @@ migrate_working_dir/
 windows/
 macos/
 linux/
-lib/test.dart/
+lib/test/
 
 # IntelliJ related
 *.iml
