@@ -9,6 +9,23 @@ const kGreenColor = Color(0xFF34A853);
 const kRedColor = Color(0xFFEA4335);
 const kGreyColor = Color(0xFFD8D8D8);
 
+final phoneInputDecoration = InputDecoration(
+  prefixIcon: Image.asset('assets/images/pak flag.png'),
+  hintText: "(+92) 300-1234567",
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    borderSide: const BorderSide(color: kPrimaryColor, width: 1.5),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    borderSide: const BorderSide(color: kPrimaryColor, width: 1.5),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    borderSide: const BorderSide(color: kPrimaryColor, width: 1.5),
+  ),
+);
+
 final otpInputDecoration = InputDecoration(
   contentPadding: const EdgeInsets.symmetric(
     vertical: 15,
