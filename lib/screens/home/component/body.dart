@@ -1,18 +1,23 @@
 import 'package:agha_steel/const.dart';
+import 'package:agha_steel/screens/home/component/third_home_screen.dart';
 import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
-import '../second_home_screen.dart';
+import 'second_home_screen.dart';
 import 'first_home_screen.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  final PageController pageController;
+  const Body({super.key, required this.pageController});
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
+      physics: const NeverScrollableScrollPhysics(),
       children: const [
         FirstHomeScreen(),
         SecondHomeScreen(),
+        ThirdHomeScreen(),
       ],
     );
   }

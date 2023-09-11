@@ -16,6 +16,7 @@ class HomeChart extends StatelessWidget {
         width: SizeConfig.screenWidth!,
         height: 400,
         margin: const EdgeInsets.only(right: 8, left: 8),
+        padding: EdgeInsets.all(getProportionateScreenWidth(16)),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -28,7 +29,6 @@ class HomeChart extends StatelessWidget {
             )
           ],
         ),
-        padding: EdgeInsets.all(getProportionateScreenWidth(16)),
         child: SfCartesianChart(
           primaryXAxis: CategoryAxis(
             majorGridLines: const MajorGridLines(width: 0),

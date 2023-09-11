@@ -5,8 +5,12 @@ import 'package:flutter_svg/svg.dart';
 import '../../../const.dart';
 
 class AppBarWidgetList extends StatelessWidget {
+  final Function() onBackPressed;
+  final Function() onForwardPressed;
   const AppBarWidgetList({
     super.key,
+    required this.onBackPressed,
+    required this.onForwardPressed,
   });
 
   @override
@@ -17,7 +21,7 @@ class AppBarWidgetList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: onBackPressed,
             icon: const Icon(
               Icons.arrow_back_ios,
               color: kPrimaryColor,
@@ -31,7 +35,7 @@ class AppBarWidgetList extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: onForwardPressed,
             icon: const Icon(
               Icons.arrow_forward_ios,
               color: kPrimaryColor,

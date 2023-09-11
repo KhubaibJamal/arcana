@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../../const.dart';
 import '../../../size_config.dart';
-import 'animated_circular_container.dart';
+import '../../account history/account_history_screen.dart';
+import '../../order history/order_history_screen.dart';
+import '../../scheduled order/scheduled_order_screen.dart';
 import 'body.dart';
+import 'custom_listtile.dart';
 import 'home_chart.dart';
 
-class FirstHomeScreen extends StatelessWidget {
-  const FirstHomeScreen({
+class SecondHomeScreen extends StatelessWidget {
+  const SecondHomeScreen({
     super.key,
   });
 
@@ -16,7 +19,7 @@ class FirstHomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const HeaderText(balance: "1,000,000"),
+          const HeaderText(balance: "1,500,000"),
           SizedBox(height: getProportionateScreenWidth(20)),
           const PurchaseText(),
           SizedBox(height: getProportionateScreenWidth(15)),
@@ -27,7 +30,6 @@ class FirstHomeScreen extends StatelessWidget {
               right: getProportionateScreenWidth(8),
             ),
             child: const Stack(
-              alignment: Alignment.topCenter,
               children: [
                 HomeChart(),
                 Row(
@@ -45,10 +47,33 @@ class FirstHomeScreen extends StatelessWidget {
 
           // dots
           Container(height: 5, width: 5, color: kPrimaryColor),
-          SizedBox(height: getProportionateScreenWidth(20)),
+          SizedBox(height: getProportionateScreenWidth(25)),
 
-          // animated container
-          const AnimatedCircularContainer(),
+          Column(
+            children: [
+              CustomListTile(
+                title: "Account History",
+                leadingIcon: 'assets/icons/account history.svg',
+                press: () {
+                  Navigator.pushNamed(context, AccountHistoryScreen.routeName);
+                },
+              ),
+              CustomListTile(
+                title: "Order History",
+                leadingIcon: 'assets/icons/order history.svg',
+                press: () {
+                  Navigator.pushNamed(context, OrderHistoryScreen.routeName);
+                },
+              ),
+              CustomListTile(
+                title: "Scheduled Order",
+                leadingIcon: 'assets/icons/calender.svg',
+                press: () {
+                  Navigator.pushNamed(context, ScheduledOrderScreen.routeName);
+                },
+              ),
+            ],
+          ),
         ],
       ),
     );

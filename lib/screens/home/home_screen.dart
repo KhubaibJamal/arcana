@@ -6,12 +6,18 @@ import '../../component/custom_nav_bar.dart';
 import '../../enum.dart';
 import 'component/home_app_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final PageController _pageController = PageController(initialPage: 0);
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
   Widget build(BuildContext context) {
-    var scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
       drawerEnableOpenDragGesture: false,
@@ -25,9 +31,20 @@ class HomeScreen extends StatelessWidget {
             scaffoldKey.currentState!.openDrawer();
           },
         ),
-        title: const AppBarWidgetList(),
+        title: AppBarWidgetList(
+          onBackPressed: () {
+            _pageController.previousPage(
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.easeInOut);
+          },
+          onForwardPressed: () {
+            _pageController.nextPage(
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.easeInOut);
+          },
+        ),
       ),
-      body: const Body(),
+      body: Body(pageController: _pageController),
       bottomNavigationBar:
           const CustomBottomNavBar(selectedMenu: MenuState.home),
     );
