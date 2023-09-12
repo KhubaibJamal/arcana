@@ -3,6 +3,7 @@ import 'package:agha_steel/screens/account%20history/account_history_screen.dart
 import 'package:agha_steel/screens/complaints/complaints_screen.dart';
 import 'package:agha_steel/screens/home/home_screen.dart';
 import 'package:agha_steel/screens/order%20history/order_history_screen.dart';
+import 'package:agha_steel/screens/profile/profile_screen.dart';
 import 'package:agha_steel/screens/scheduled%20order/scheduled_order_screen.dart';
 import 'package:agha_steel/size_config.dart';
 import 'package:flutter/material.dart';
@@ -117,13 +118,14 @@ class HomeDrawer extends StatelessWidget {
 
                 const Spacer(),
 
+                // logout button
                 Padding(
                   padding:
                       EdgeInsets.only(left: getProportionateScreenWidth(15.0)),
                   child: Stack(
                     children: [
                       SizedBox(
-                        width: SizeConfig.screenWidth! / 2.5,
+                        width: SizeConfig.screenWidth! / 2.75,
                         child: DefaultButton(
                           text: "Log Out",
                           textColor: Colors.white,
@@ -133,7 +135,13 @@ class HomeDrawer extends StatelessWidget {
                       Positioned(
                         top: 22,
                         left: 15,
-                        child: SvgPicture.asset('assets/icons/logout.svg'),
+                        child: SvgPicture.asset(
+                          'assets/icons/logout.svg',
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcIn,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -155,24 +163,29 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AspectRatio(
+    return AspectRatio(
       aspectRatio: 1.5,
       child: Padding(
-        padding: EdgeInsets.only(left: 12.0),
+        padding: const EdgeInsets.only(left: 12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
-            CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage('assets/images/profile.png'),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
+              child: const CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.transparent,
+                backgroundImage: AssetImage('assets/images/profile.png'),
+              ),
             ),
-            Spacer(),
-            Text(
+            const Spacer(),
+            const Text(
               "Ejaz Ahmed",
               style: TextStyle(
                 color: kTextColor,
@@ -180,7 +193,7 @@ class UserInfo extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               "ejaz_ahmed@gmail.com",
               style: TextStyle(
                 color: kSecondaryTextColor,
