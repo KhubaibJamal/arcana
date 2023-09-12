@@ -9,7 +9,7 @@ class BodyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 300,
+      bottom: SizeConfig.screenHeight! * 0.35,
       child: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
