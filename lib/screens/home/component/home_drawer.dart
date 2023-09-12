@@ -123,7 +123,7 @@ class HomeDrawer extends StatelessWidget {
                   child: Stack(
                     children: [
                       SizedBox(
-                        width: SizeConfig.screenWidth! / 3,
+                        width: SizeConfig.screenWidth! / 2.5,
                         child: DefaultButton(
                           text: "Log Out",
                           textColor: Colors.white,
@@ -138,7 +138,6 @@ class HomeDrawer extends StatelessWidget {
                     ],
                   ),
                 ),
-                // const Spacer(),
                 SizedBox(height: getProportionateScreenWidth(20))
               ],
             ),
